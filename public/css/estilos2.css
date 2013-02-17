@@ -1,0 +1,41 @@
+.suma{
+	background-color:#808080;
+	color:white;
+
+}
+.suma_csi{
+	
+}
+
+caption{
+	background-color: #ff7575;
+	padding: 10px;
+	width: 100%;
+	font-size: 25px;
+}
+table{
+	border-color: #000000;
+}
+
+/*table tr th{
+	background-color: #808080;
+	color:white;
+	/* text-align: center; */
+
+}*/
+table tr td{
+	vertical-align: center;
+	horizontal-align:center;
+	text-align: center;    
+    vertical-align: text-top;
+
+}
+
+	#rpta1{
+		overflow-top:scroll;
+		overflow-x:scroll;
+   	   overflow-y:hidden;
+    	white-space:nowrap;
+	}
+	/*tabla excel*/
+	
