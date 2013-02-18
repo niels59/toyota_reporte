@@ -67,6 +67,11 @@
 			
 		</ul>
 	</div>
+	  <!--contenedor de botones de exportacion -->
+    <div class="container" id="btn_excel" style='padding:10px'	>
+    	<button class="btn btn-success" id='btn_acu_tableexcel'>Exportar a Excel</button>
+    	<button class="btn btn-success" id='btn_acu_ptableexcel'>Imprimir</button>
+    </div>
 	<div class="container" id="rspta">
 		<div class="" id="divacumulado" align="center" style="display: none;">
 			<ul class="thumbnails">
@@ -107,7 +112,7 @@
 			
 		</div>
 	</div>
-
+  
 	<div id = "rpt1" class="container">
 	</div>
 	<div id = "rpt2" class="container">
@@ -127,6 +132,16 @@
                         
              </div>
 		</div>
+        <?php echo form_open('Home/home/acu_export_excel',array('id'=>'rep_form_excel')); ?>
+			<input type="hidden" name="acu_name_excel" id="acu_name_excel" value="0">
+			<input type="hidden" name="acu_tableexcel" id="acu_tableexcel" value="0">
+
+		<?php echo form_close(); ?>
+		<?php echo form_open('Home/home/rnk_print_excel',array('id'=>'rep_gprint_excel')); ?>
+			<input type="hidden" name="acu_pname_excel" id="acu_pname_excel" value="0">
+			<input type="hidden" name="acu_ptableexcel" id="acu_ptableexcel" value="0">
+
+		<?php echo form_close();?>
 	</footer>
 </body>
 </html>

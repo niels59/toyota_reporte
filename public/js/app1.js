@@ -1,6 +1,9 @@
 //$( '#form_login' ).parsley();
 $(document).ready(function() {
     $('#rpt2').hide();
+    // cambios para reporte acumalado-ranking
+    $('#acu_tableexcel').val(0);
+    
     $('#nick').on({
         'change':function(){
             $(this).val($(this).val().toUpperCase());
@@ -55,12 +58,18 @@ $(document).ready(function() {
                     'elegido2':elegido2,
                     'elegido3':elegido3
                 };
-
+                // i- nbaltodanov 17-02-2013
                 $.post(base_url + 'home/get_reporte1',dato,function(resp){
                     //$('#rpt1').empty();
                     $('#rpt1').show().html(resp);// cambios
                 //alert(dato);
+                }).complete(function(){
+                    //para reporte Acumulado y Ranking
+                    $('#acu_tableexcel').val($("<div>").append( $("#rpt1").eq(0).clone()).html());
+                    $('#acu_ptableexcel').val($("<div>").append( $("#rpt1").eq(0).clone()).html());
+                    $('#acu_name_excel').val($('#select_acumulado2').val()+'-'+$('#select_acumulado3').val());
                 });
+                // f- nbaltodanov
             }
             //cambios 	
             if($('#select_acumulado1').val()== 0  && $('#select_acumulado2').val()== 0 && $('#select_acumulado3').val()== 0){
@@ -88,6 +97,11 @@ $(document).ready(function() {
                     //$('#rpt2').empty();
                     $('#rpt2').show().html(resp);// cambios
                 //alert(dato);
+                }).complete(function(){
+                    //para reporte Acumulado y Ranking
+                    $('#acu_tableexcel').val($("<div>").append( $("#rpt2").eq(0).clone()).html());
+                    $('#acu_ptableexcel').val($("<div>").append( $("#rpt2").eq(0).clone()).html());
+                    $('#acu_name_excel').val($('#select_ranking2').val());
                 });
             }
             //cambios           
@@ -123,9 +137,28 @@ $(document).ready(function() {
 
         }
     });
-
-
-
+    //para reporte Acumulado y Ranking
+    //acu_form_excel
+    $('#btn_acu_tableexcel').on({
+        click:function(e){
+            if($('#acu_tableexcel').val()!=0){
+                $('#rep_form_excel').submit();
+               
+            }
+            e.preventDefault();
+        }
+    });
+    
+        $('#btn_acu_ptableexcel').on({
+        click:function(e){
+            if($('#acu_ptableexcel').val()!=0){
+                $('#rep_gprint_excel').submit();
+               
+            }
+            e.preventDefault();
+        }
+    });
+    
 
 	
 });// fin del onready

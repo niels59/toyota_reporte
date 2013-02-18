@@ -174,7 +174,27 @@ class home extends CI_Controller {
         //print_r($_POST);
         $this->load->view('Home/print_excel_view', $data);
     }
-
+    // reporte acumulado-ranking
+    
+    public function acu_export_excel(){
+       
+       
+        $data['excel_file'] = $this->input->post('acu_tableexcel');
+        
+        $data['name_excel'] = $this->input->post('acu_name_excel');
+        //print_r($_POST);
+        $this->load->view('Home/export_excel_view', $data);
+        
+    }
+    public function rnk_print_excel(){
+       
+        $data['excel_file'] = $this->input->post('acu_ptableexcel');
+        $data['name_excel'] = $this->input->post('acu_pname_excel');
+        //print_r($_POST);
+        $this->load->view('Home/print_excel_view', $data);
+    }
+    //fin reporte acumulado ranking
+    
     public function volver() {
         if (!$this->simple_sessions->check_sess('nick')) {
             //$this->simple_sessions->destroy_sess();

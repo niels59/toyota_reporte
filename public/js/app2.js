@@ -86,7 +86,7 @@ $(document).ready(function() {
     $('#gtoexcel').on({
         click:function(e){
             //alert('hola');		
-            if($('#gtableexcel').val()!=0){				
+            if($('#gtableexcel').val()!=0){			º	
                 $('#gform_excel').submit();
             }
             e.preventDefault();
